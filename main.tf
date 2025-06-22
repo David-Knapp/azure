@@ -27,7 +27,7 @@ variable "subnet_names" {
 # Providers
 
 provider "azurerm" {
-
+  features {}
 }
 
 # Resources
