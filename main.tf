@@ -11,7 +11,7 @@ variable "location" {
 
 variable "vnet_cidr_range" {
   type = string
-  default = "10.100.0.0/16"
+  default = ["10.100.0.0/16"]
 }
 
 variable "subnet_prefixes" {
