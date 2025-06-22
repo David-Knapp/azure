@@ -31,7 +31,7 @@ provider "azurerm" {
 
 # Resources
 
-module "vnet-main' {
+module "vnet-main" {
   source = "Azure/vnet/azurerm"
   resource_group_name = var.resource_group_name
   location = var.location
