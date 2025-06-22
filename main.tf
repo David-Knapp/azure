@@ -10,7 +10,7 @@ variable "location" {
 }
 
 variable "vnet_cidr_range" {
-  type = lsit(string)
+  type = list(string)
   default = "10.100.0.0/16"
 }
 
