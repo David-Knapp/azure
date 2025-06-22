@@ -24,10 +24,15 @@ variable "subnet_names" {
   default = ["subnet1", "subnet2"]
 }
 
+variable "subscription_id" {
+  type = string
+}
+
 # Providers
 
 provider "azurerm" {
   features {}
+  subscription_id = var.subscription_id
 }
 
 # Resources
