@@ -6,5 +6,5 @@ resource "random_pet" "rg_name" {
 # Create a resource group using the generated random name
 resource "azurerm_resource_group" "example" {
   location = var.resource_group_location
-  name     = random_pet.rg_name.id
+  name     = var.resource_group_name
 }
