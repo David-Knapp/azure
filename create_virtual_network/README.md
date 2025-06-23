@@ -6,4 +6,4 @@ Directions:
 2.  modify the variables in the main.tf file
 3.  terraform.exe init   
 4.  terraform.exe plan -var resource_group_name=<"name of the resource group"> -var subscription_id=<"Azure subscription id"> -out rg.tfplan
-5.  terraform.exe apply "rg.tfplan"
+5.  terraform.exe apply "vnet.tfplan"
