@@ -9,3 +9,7 @@ variable "resource_group_name {
   default     = "resource_group"
   description = "Name of the resource group."
 }
+
+variable "subscription_id" {
+  type = string
+}
