@@ -13,3 +13,14 @@ variable "resource_group_name" {
 variable "subscription_id" {
   type = string
 }
+
+variable "storage_account_tier" {
+  type = string
+  default = "Standard"
+}
+
+variable "storage_account_replication_type" {
+  type = string
+  default = "LRS"
+}
+
