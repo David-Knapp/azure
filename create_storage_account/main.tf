@@ -1,6 +1,10 @@
-# Create a resource group using the generated random name
-resource "azurerm_resource_group" "create_resource_group" {
-  location = var.resource_group_location
-  name     = var.resource_group_name
+# Generate a random 5 digit number to add to the end of the storage account name
+resource "azurerm_integer" "storage_account_number" {
+  min = 100000
+  max = 999999
 }
 
+#
+
+resource "azurerm_storage_account" "storage_account" {
+  name = 
