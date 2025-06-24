@@ -8,3 +8,9 @@ resource "azurerm_integer" "storage_account_number" {
 
 resource "azurerm_storage_account" "storage_account" {
   name = 
+  resiyrce_group_name = 
+  location = 
+  account_tier = 
+  account_replication_type = 
+}
+
