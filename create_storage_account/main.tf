@@ -9,8 +9,8 @@ resource "azurerm_integer" "storage_account_number" {
 resource "azurerm_storage_account" "storage_account" {
   name = 
   resource_group_name = var.resource_group_name
-  location = 
-  account_tier = 
-  account_replication_type = 
+  location = var.resource_group_location
+  account_tier = var.storage_account_tier
+  account_replication_type = var.storage_account_type
 }
 
