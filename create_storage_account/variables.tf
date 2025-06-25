@@ -16,7 +16,7 @@ variable "subscription_id" {
 
 variable "storage_account_prefix" {
   type = string
-  default = "storage-account-abc123-"
+  default = "saabc123"
 }
 
 variable "storage_account_tier" {
