@@ -1,5 +1,5 @@
 # Generate a random 5 digit number to add to the end of the storage account name
-resource "azurerm_integer" "storage_account_number" {
+resource "random_integer" "storage_account_number" {
   min = 100000
   max = 999999
 }
