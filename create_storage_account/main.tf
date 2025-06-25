@@ -14,7 +14,6 @@ resource "azurerm_storage_account" "storage_account" {
 }
 
 # Create the container for the storage account
-
 resource "azurerm_storage_container" "container" {
   name = ""container"
   storage_account_name = azurerm_storage_account.storage_account.name
