@@ -7,9 +7,9 @@
   vars:
     resource_group: mypostgres123
     location: westus2
-    server_name: postgresserver
+    server_name: david-postgresserver-1462
     admin_user: david
-    admin_password: password  # Replace with a strong password
+    admin_password: Password  # Replace with a strong password
     sku_name: Standard_B1ms
 
   tasks:
@@ -31,6 +31,8 @@
         sku: 
           name: Standard_B1ms
           tier: Burstable
+        storage:
+          storage_size_gb: 128
         administrator_login: "{{ admin_user }}"
         administrator_login_password: "{{ admin_password }}"
         state: present
