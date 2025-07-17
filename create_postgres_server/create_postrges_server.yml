@@ -7,9 +7,9 @@
   vars:
     resource_group: mypostgres123
     location: westus2
-    server_name: PostgresServer
+    server_name: postgresserver
     admin_user: david
-    admin_password: mySecretPassword  # Replace with a strong password
+    admin_password: password  # Replace with a strong password
     sku_name: Standard_B1ms
 
   tasks:
@@ -23,9 +23,10 @@
     - name: Create PostgreSQL Flexible Server
       azure.azcollection.azure_rm_postgresqlflexibleserver:
         name: "{{ server_name }}"
-        resource_group: 
-          name: "{{ .id }}"resource_group }}"
-          location: "{{ location }}"
+        resource_group: "{{ resource_group }}"
+         # name: "{{ resource_group }}"
+          # name: "{{ .id }}"resource_group }}"
+          # location: "{{ location }}"
         # location: "{{ location }}"
         sku: 
           name: B_Gen5_2
@@ -37,4 +38,4 @@
 
     - name: Display server details
       debug:
-        msg: "PostgreSQL server created: {{ postgres_server
+        msg: "PostgreSQL server created: {{ postgres_server }}"
