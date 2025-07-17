@@ -29,11 +29,12 @@
           # location: "{{ location }}"
         # location: "{{ location }}"
         sku: 
-          name: B_Gen5_2
-          tier: GeneralPurpose
+          name: Standard_B1ms
+          tier: Burstable
         administrator_login: "{{ admin_user }}"
         administrator_login_password: "{{ admin_password }}"
         state: present
+        version: 17
       register: postgres_server
 
     - name: Display server details
