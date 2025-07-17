@@ -21,11 +21,11 @@
       register: resource_group
 
     - name: Create PostgreSQL Flexible Server
-      azure.azcollection.azure_rm_postgresqlflexible_module:
+      azure.azcollection.azure_rm_postgresqlflexibleserver:
         resource_group: "{{ resource_group }}"
         name: "{{ server_name }}"
         location: "{{ location }}"
-        sku_name: "{{ sku_name }}"
+        sku: "{{ sku_name }}"
         administrator_login: "{{ admin_user }}"
         administrator_login_password: "{{ admin_password }}"
         state: present
