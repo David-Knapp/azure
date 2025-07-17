@@ -5,7 +5,7 @@
   gather_facts: false
 
   vars:
-    resource_group: Postgres
+    resource_group: mypostgres123
     location: westus2
     server_name: PostgresServer
     admin_user: david
@@ -18,14 +18,18 @@
         name: "{{ resource_group }}"
         location: "{{ location }}"
         state: present
-      register: resource_group
+      register: rg
 
     - name: Create PostgreSQL Flexible Server
       azure.azcollection.azure_rm_postgresqlflexibleserver:
-        resource_group: "{{ resource_group }}"
         name: "{{ server_name }}"
-        location: "{{ location }}"
-        sku: "{{ sku_name }}"
+        resource_group: 
+          name: "{{ .id }}"resource_group }}"
+          location: "{{ location }}"
+        # location: "{{ location }}"
+        sku: 
+          name: B_Gen5_2
+          tier: GeneralPurpose
         administrator_login: "{{ admin_user }}"
         administrator_login_password: "{{ admin_password }}"
         state: present
@@ -33,4 +37,4 @@
 
     - name: Display server details
       debug:
-        msg: "PostgreSQL server created: {{ postgres_server.id }}"
+        msg: "PostgreSQL server created: {{ postgres_server
