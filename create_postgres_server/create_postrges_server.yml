@@ -1,1 +1,36 @@
+---
+- name: Create Azure PostgreSQL Flexible Server
+  hosts: localhost  # We are running the commands through the Azure CLI
+  connection: local  # We are running the cmmands on the Ansible control server provided by the Azure CLI
+  gather_facts: false
 
+  vars:
+    resource_group: Postgres
+    location: westus2
+    server_name: PostgresServer
+    admin_user: david
+    admin_password: mySecretPassword  # Replace with a strong password
+    sku_name: Standard_B1ms
+
+  tasks:
+    - name: Create resource group
+      azure_rm_resourcegroup:
+        name: "{{ resource_group }}"
+        location: "{{ location }}"
+        state: present
+      register: resource_group
+
+    - name: Create PostgreSQL Flexible Server
+      azure.azcollection.azure_rm_postgresqlflexible_module:
+        resource_group: "{{ resource_group }}"
+        name: "{{ server_name }}"
+        location: "{{ location }}"
+        sku_name: "{{ sku_name }}"
+        administrator_login: "{{ admin_user }}"
+        administrator_login_password: "{{ admin_password }}"
+        state: present
+      register: postgres_server
+
+    - name: Display server details
+      debug:
+        msg: "PostgreSQL server created: {{ postgres_server.id }}"
