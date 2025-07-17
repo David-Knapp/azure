@@ -8,8 +8,8 @@
     resource_group: mypostgres123
     location: westus2
     server_name: david-postgresserver-1462
-    admin_user: username # Replace with username
-    admin_password: Password  # Replace with a strong password
+    admin_user: username # Replace with the username
+    admin_password: password  # Replace with a strong password
     sku_name: Standard_B1ms
 
   tasks:
