@@ -3,15 +3,10 @@
      connection: local
      gather_facts: false
      vars:
-       resource_group: "Postgres"
-       server_name: "PostgresServer"
-       database_name: "PostgresServer_Database"
-       location: "westus2"  # Or your desired Azure region
-       sku_name: "Standard_D2ds_v4"  # Or your desired SKU
-       storage_size_gb: 5  # Or your desired storage size
-       version: "14"  # Or your desired PostgreSQL version
-       administrator_login: "david"
-       administrator_login_password: "your_admin_password"
+       resource_group: "mypostgres123"
+       server_name: "david-postgresserver-1462"
+       database_name: "database"
+       
      tasks:
        - name: Create PostgreSQL Flexible Server database
          azure.azcollection.azure_rm_postgresqlflexibledatabase:
@@ -19,13 +14,7 @@
            server_name: "{{ server_name }}"
            name: "{{ database_name }}"
            state: present
-           location: "{{ location }}"
-           sku_name: "{{ sku_name }}"
-           storage_size_gb: "{{ storage_size_gb }}"
-           version: "{{ version }}"
-           administrator_login: "{{ administrator_login }}"
-           administrator_login_password: "{{ administrator_login_password }}"
-         register: result
+          register: result
 
        - debug:
            var: result
